@@ -37,11 +37,16 @@
         }
 
         // Function to handle user input and send a message
-        function handleUserInput() {
+        async function handleUserInput() {
             const message = userInput.value;
             if (message) {
                 addMessage(message, 'user');
-                // TODO: Send message to server and get response
+
+                // Response
+                let response = await fetch(`http://127.0.0.1:8000/${message}`)
+                let result = await response.json()
+                addMessage(result['response'], 'bot');
+                
                 userInput.value = '';
             }
         }

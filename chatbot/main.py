@@ -33,5 +33,12 @@ def run_model(input_string, **generator_args):
 
 @app.get("/")
 async def root(request: Request):
-    response = run_model(request)
-    return templates.TemplateResponse("index.html", {"request": request, "response": response})
+    return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.get("/{question}")
+async def response(question: str):
+    response = run_model(question)
+    x = slice(9, -7)
+    print(response[0][x])
+    return {'response': response[0][x]}
