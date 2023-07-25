@@ -1,11 +1,12 @@
 # Chatbot
 
-# About The Project
-  A generation based chatbot
+## About The Project
+  A generation based chatbot.
 
 ## Technologies used in this project:
   - python
   - fastapi
+  - javascript
   - html
   - css
 
